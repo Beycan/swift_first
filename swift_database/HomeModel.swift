@@ -5,14 +5,19 @@
 //  Created by sistemas005 on 20/08/19.
 //  Copyright © 2019 Beagle. All rights reserved.
 //
-
+import UIKit
 import Foundation
 
-protocol HomeModelProtocol:class {
-    func itemsDownloaded(items:NSArray)
+protocol HomeModelProtocol: class {
+    func itemsDownloaded(items: NSArray)
 }
-class HomeModel: NSObject,URLSessionDataDelegate {
-    weak var delegate:HomeModelProtocol!
+
+
+class HomeModel: NSObject, URLSessionDataDelegate {
+    
+    //properties
+    
+    weak var delega: HomeModelProtocol!
     var data=Data()
     let urlPath:String="http://localhost:8888/test_bei/service.php"
     
@@ -72,7 +77,11 @@ func parseJSON(_ data:Data){
 
     }
     
-    print(locations) //hasta aqui ya està
-    DispatchQueue.main.async(execute: { () -> Void in self.delegate.itemsDownloaded(items: locations)})
+  print(locations)
+    
+//    hasta aqui ya està
+//    DispatchQueue.main.async(execute: {
+//        () -> Void in self.delega.itemsDownloaded(items: locations)
+//    })
 }
 

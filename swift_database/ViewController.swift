@@ -25,7 +25,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         self.listTableView.dataSource = self
         
         let homeModel = HomeModel()
-        homeModel.delegate = self
+        homeModel.delega = self
         homeModel.downloadItems()
     }
     
